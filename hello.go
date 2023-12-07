@@ -13,4 +13,7 @@ func main() {
 	fmt.Println("Email:", contacts.Email)
 	fmt.Println(tasks.IncB(1))
 	fmt.Println(tasks.HelloUser(1997))
+	tasks.Cycle(1, 10)
+	tasks.GoTo()
+	tasks.FizzBuzz()
 }
