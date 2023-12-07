@@ -11,5 +11,6 @@ func main() {
 	contacts.SetSupport("Служба поддержки")
 	fmt.Println(contacts.GetContact())
 	fmt.Println("Email:", contacts.Email)
-	fmt.Println(tasks.IncB(20))
+	fmt.Println(tasks.IncB(1))
+	fmt.Println(tasks.HelloUser(1997))
 }
