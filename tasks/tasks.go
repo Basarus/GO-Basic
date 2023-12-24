@@ -1,6 +1,10 @@
 package tasks
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+)
 
 func HelloUser(year int) string {
 	switch {
@@ -78,4 +82,58 @@ func FizzBuzz() {
 			fmt.Println(i)
 		}
 	}
+
+	var a int = 5
+	p := &a
+
+	fmt.Println(a, p) //a=5 p=0xc0000b2008
+}
+
+func Ucaz() {
+	a := 1
+	p := &a
+	b := &p
+
+	*p = 3
+	**b = 5
+
+	a += 4 + *p + **b
+
+	fmt.Printf("%d", *p)
+}
+
+func Stroke() {
+	// Получаем читателя пользовательского ввода
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Println("Interaction counter")
+
+	cnt := 0
+	for {
+		fmt.Print("-> ")
+		_, err := reader.ReadString('\n')
+		if err != nil {
+			panic(err)
+		}
+
+		f(&cnt)
+
+		fmt.Printf("User input %d lines\n", cnt)
+	}
+}
+
+func f(cnt *int) {
+	*cnt++
+}
+
+func Slace(value int) {
+	weekTempArr := [7]int{1, 2, 3, 4, 5, 6, 7}
+	workDaysSlice := weekTempArr[:value]
+	weekendSlice := weekTempArr[value:]
+	fromTuesdayToThursDaySlice := weekTempArr[value : value+2]
+	weekTempSlice := weekTempArr[:]
+
+	fmt.Println(workDaysSlice, len(workDaysSlice), cap(workDaysSlice))                                        // [1 2 3 4 5] 5 7
+	fmt.Println(weekendSlice, len(weekendSlice), cap(weekendSlice))                                           // [6 7] 2 2
+	fmt.Println(fromTuesdayToThursDaySlice, len(fromTuesdayToThursDaySlice), cap(fromTuesdayToThursDaySlice)) // [2 3 4] 3 6
+	fmt.Println(weekTempSlice, len(weekTempSlice), cap(weekTempSlice))                                        // [1 2 3 4 5 6 7] 7 7
 }

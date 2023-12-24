@@ -16,4 +16,7 @@ func main() {
 	tasks.Cycle(1, 10)
 	tasks.GoTo()
 	tasks.FizzBuzz()
+	//tasks.Ucaz()
+	//tasks.Stroke()
+	tasks.Slace(5)
 }
